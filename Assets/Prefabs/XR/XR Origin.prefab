@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7630255868216245126}
   - component: {fileID: 323007152191223007}
+  - component: {fileID: 1541675006147406199}
+  - component: {fileID: 37804650360284759}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Untagged
@@ -31,6 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6841321705196414434}
+  - {fileID: 4299882407582839980}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &323007152191223007
@@ -50,6 +53,64 @@ MonoBehaviour:
   m_CameraFloorOffsetObject: {fileID: 7668475382139584254}
   m_RequestedTrackingOriginMode: 0
   m_CameraYOffset: 1.1176
+--- !u!114 &1541675006147406199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205646548202604188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a5df2202a8b96488c744be3bd0c33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Timeout: 10
+  m_XROrigin: {fileID: 323007152191223007}
+--- !u!114 &37804650360284759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205646548202604188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2213c36610e3b1c4bbf886810ed9db12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_System: {fileID: 1541675006147406199}
+  m_TurnAmount: 45
+  m_DebounceTime: 0.5
+  m_EnableTurnLeftRight: 1
+  m_EnableTurnAround: 1
+  m_DelayTime: 0
+  m_LeftHandSnapTurnAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Left Hand Snap Turn
+      m_Type: 0
+      m_ExpectedControlType: Vector2
+      m_Id: a1d07c24-ca50-422a-a23f-685d9fabf63b
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -7374733323251553461, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  m_RightHandSnapTurnAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Right Hand Snap Turn
+      m_Type: 0
+      m_ExpectedControlType: Vector2
+      m_Id: a7b54797-6974-4f75-81d0-42b9c15ef1e0
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -8525429354371678379, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
 --- !u!1 &497017633402762875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1750,7 +1811,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_SelectActionTrigger: 1
-  m_HideControllerOnSelect: 0
+  m_HideControllerOnSelect: 1
   m_AllowHoveredActivate: 0
   m_TargetPriorityMode: 0
   m_PlayAudioClipOnSelectEntered: 0
@@ -1759,7 +1820,7 @@ MonoBehaviour:
   m_AudioClipForOnSelectExited: {fileID: 0}
   m_PlayAudioClipOnSelectCanceled: 0
   m_AudioClipForOnSelectCanceled: {fileID: 0}
-  m_PlayAudioClipOnHoverEntered: 1
+  m_PlayAudioClipOnHoverEntered: 0
   m_AudioClipForOnHoverEntered: {fileID: 8300000, guid: 5318f3233ddeb46379dabdac9977f263,
     type: 3}
   m_PlayAudioClipOnHoverExited: 0
@@ -1791,6 +1852,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_PhysicsTriggerInteraction: 1
+  onTargetPunch:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5876451446326094135}
+        m_TargetAssemblyTypeName: TestTaskManeraiInc.PlayAudio, Assembly-CSharp
+        m_MethodName: PlayAudioClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!135 &3088388891695187557
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1929,7 +2005,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_SelectActionTrigger: 1
-  m_HideControllerOnSelect: 0
+  m_HideControllerOnSelect: 1
   m_AllowHoveredActivate: 0
   m_TargetPriorityMode: 0
   m_PlayAudioClipOnSelectEntered: 0
@@ -1938,7 +2014,7 @@ MonoBehaviour:
   m_AudioClipForOnSelectExited: {fileID: 0}
   m_PlayAudioClipOnSelectCanceled: 0
   m_AudioClipForOnSelectCanceled: {fileID: 0}
-  m_PlayAudioClipOnHoverEntered: 1
+  m_PlayAudioClipOnHoverEntered: 0
   m_AudioClipForOnHoverEntered: {fileID: 8300000, guid: 5318f3233ddeb46379dabdac9977f263,
     type: 3}
   m_PlayAudioClipOnHoverExited: 0
@@ -1970,6 +2046,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_PhysicsTriggerInteraction: 1
+  onTargetPunch:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5876451446326094135}
+        m_TargetAssemblyTypeName: TestTaskManeraiInc.PlayAudio, Assembly-CSharp
+        m_MethodName: PlayAudioClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!135 &211730526014026032
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1991,3 +2082,89 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.075
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &4623020941620174783
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7630255868216245126}
+    m_Modifications:
+    - target: {fileID: 8459682505492990596, guid: cf65357d9104d4738a9da407ec41bf84,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayPunchAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900244578466753299, guid: cf65357d9104d4738a9da407ec41bf84,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900244578466753299, guid: cf65357d9104d4738a9da407ec41bf84,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.1176
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900244578466753299, guid: cf65357d9104d4738a9da407ec41bf84,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900244578466753299, guid: cf65357d9104d4738a9da407ec41bf84,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900244578466753299, guid: cf65357d9104d4738a9da407ec41bf84,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900244578466753299, guid: cf65357d9104d4738a9da407ec41bf84,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900244578466753299, guid: cf65357d9104d4738a9da407ec41bf84,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900244578466753299, guid: cf65357d9104d4738a9da407ec41bf84,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900244578466753299, guid: cf65357d9104d4738a9da407ec41bf84,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900244578466753299, guid: cf65357d9104d4738a9da407ec41bf84,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cf65357d9104d4738a9da407ec41bf84, type: 3}
+--- !u!4 &4299882407582839980 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8900244578466753299, guid: cf65357d9104d4738a9da407ec41bf84,
+    type: 3}
+  m_PrefabInstance: {fileID: 4623020941620174783}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5876451446326094135 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1271453779315570312, guid: cf65357d9104d4738a9da407ec41bf84,
+    type: 3}
+  m_PrefabInstance: {fileID: 4623020941620174783}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e401482ca78ce4fd681550a715c29371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

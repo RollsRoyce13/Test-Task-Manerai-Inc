@@ -34,8 +34,6 @@ namespace TestTaskManeraiInc
         {
             if (bloodParticles == null)
                 throw new ArgumentNullException(nameof(bloodParticles));
-
-            Debug.Log(hitDirection);
             
             bool isLeftDirection = hitDirection.x > 0;
 

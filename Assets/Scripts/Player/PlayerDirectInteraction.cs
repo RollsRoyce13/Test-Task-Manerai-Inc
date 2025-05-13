@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
 namespace TestTaskManeraiInc
 {
 	public class PlayerDirectInteraction : XRDirectInteractor
 	{
+		[Header("Custom Events")]
+		[SerializeField] private UnityEvent onTargetPunch;
+		
 		protected override void OnHoverEntered(HoverEnterEventArgs args)
 		{
 			base.OnHoverEntered(args);
@@ -15,6 +19,7 @@ namespace TestTaskManeraiInc
 			Vector3 direction = (hitPosition - transform.position).normalized;
 			
 			target.TakeDamage(direction);
+			onTargetPunch?.Invoke();
 		}
 	}
 }
