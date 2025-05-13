@@ -10,8 +10,10 @@ namespace TestTaskManeraiInc
 			base.OnHoverEntered(args);
 			
 			if (!args.interactableObject.transform.TryGetComponent(out IDamageable target)) return;
+
+			Vector3 hitPosition = args.interactableObject.transform.position;
+			Vector3 direction = (hitPosition - transform.position).normalized;
 			
-			Vector3 direction = (args.interactableObject.transform.position - transform.position).normalized;
 			target.TakeDamage(direction);
 		}
 	}

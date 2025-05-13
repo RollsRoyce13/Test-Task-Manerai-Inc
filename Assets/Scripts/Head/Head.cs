@@ -24,11 +24,10 @@ namespace TestTaskManeraiInc
 
         public void TakeDamage(Vector3 hitDirection)
         {
-            Debug.Log("Take Damage");
             _punchPosition.Punch(hitDirection);
             _punchScale.Punch();
 
-            //PlayBloodEffect(hitDirection);
+            PlayBloodEffect(hitDirection);
         }
 
         private void PlayBloodEffect(Vector3 hitDirection)
@@ -36,7 +35,14 @@ namespace TestTaskManeraiInc
             if (bloodParticles == null)
                 throw new ArgumentNullException(nameof(bloodParticles));
 
-            bloodParticles.transform.forward = hitDirection;
+            Debug.Log(hitDirection);
+            
+            bool isLeftDirection = hitDirection.x > 0;
+
+            bloodParticles.transform.rotation = isLeftDirection
+                ? Quaternion.Euler(0f, 90f, 0f)
+                : Quaternion.Euler(0f, -90f, 0f);
+            
             bloodParticles.Play();
         }
     }
